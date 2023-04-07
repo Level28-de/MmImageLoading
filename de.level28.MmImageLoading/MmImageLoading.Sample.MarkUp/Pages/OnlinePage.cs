@@ -39,14 +39,18 @@ sealed class OnlinePage : BaseContentPage<OnlineViewModel>
                                 mode: BindingMode.OneTime);
         MmCachedImage3 = new CachedImage()
         {
-            LoadingPlaceholder = "logo",
+            //LoadingPlaceholder = "logo",
             ErrorPlaceholder = "image_missing",
             WidthRequest = 100,
             HeightRequest = 100,
             DownsampleToViewSize = true,
 
         }.Bind(CachedImage.SourceProperty, static (OnlineViewModel vm) => vm.GifAdress3,
-                                mode: BindingMode.OneWay);
+                                mode: BindingMode.OneWay)
+        .Bind(CachedImage.LoadingPlaceholderProperty, static (OnlineViewModel vm) => vm.LoadingPlaceholder,
+                                mode: BindingMode.OneWay)
+
+        ;
         MmCachedImage4 = new CachedImage()
         {
             LoadingPlaceholder = "logo",
@@ -61,7 +65,7 @@ sealed class OnlinePage : BaseContentPage<OnlineViewModel>
         MmLoadingError = new CachedImage()
         {
             LoadingPlaceholder = "logo",
-            ErrorPlaceholder = "image_missing",
+            //ErrorPlaceholder = "image_missing",
             WidthRequest = 100,
             HeightRequest = 200,
             CacheDuration = TimeSpan.FromDays(1),
@@ -69,6 +73,8 @@ sealed class OnlinePage : BaseContentPage<OnlineViewModel>
             RetryCount = 3,
             RetryDelay = 500,
         }.Bind(CachedImage.SourceProperty, static (OnlineViewModel vm) => vm.GifAdress5,
+                                mode: BindingMode.OneWay)
+          .Bind(CachedImage.ErrorPlaceholderProperty, static (OnlineViewModel vm) => vm.ErrorPlaceholder,
                                 mode: BindingMode.OneWay);
         Content = new VerticalStackLayout
         {

@@ -13,8 +13,9 @@ sealed partial class OnlineViewModel : BaseViewModel, IDisposable
         GifAdress3 = "https://eltepi.de/images/DistractionFree.gif";
         GifAdress4 = "https://eltepi.de/images/LongtermMemory.gif";
         GifAdress5 = "https://elt.de/images/LongtermMemory.gif";
+        LoadingPlaceholder = "logo";
+        ErrorPlaceholder = "image_missing";
     }
-
 
     [ObservableProperty]
     string gifAdress2;
@@ -27,6 +28,12 @@ sealed partial class OnlineViewModel : BaseViewModel, IDisposable
 
     [ObservableProperty]
     string gifAdress5;
+
+    [ObservableProperty]
+    string loadingPlaceholder;
+
+    [ObservableProperty]
+    string errorPlaceholder;
 
     string myGifAdress1;
     public string GifAdress1

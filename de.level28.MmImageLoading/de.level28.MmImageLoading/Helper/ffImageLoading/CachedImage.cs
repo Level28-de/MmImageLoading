@@ -45,6 +45,37 @@ namespace MmImageLoading.MAUI
             get => (ImageSource)GetValue(SourceProperty);
             set => SetValue(SourceProperty, value);
         }
+
+        /// <summary>
+        /// The loading placeholder property.
+        /// </summary>
+        public static readonly BindableProperty LoadingPlaceholderProperty = BindableProperty.Create(nameof(LoadingPlaceholder), typeof(ImageSource), typeof(CachedImage), default(ImageSource), coerceValue: CoerceImageSource);
+
+        /// <summary>
+        /// Gets or sets the loading placeholder image.
+        /// </summary>
+        [TypeConverter(typeof(ImageSourceConverter))]
+        public ImageSource LoadingPlaceholder
+        {
+            get => (ImageSource)GetValue(LoadingPlaceholderProperty);
+            set => SetValue(LoadingPlaceholderProperty, value);
+        }
+
+        /// <summary>
+        /// The error placeholder property.
+        /// </summary>
+        public static readonly BindableProperty ErrorPlaceholderProperty = BindableProperty.Create(nameof(ErrorPlaceholder), typeof(ImageSource), typeof(CachedImage), default(ImageSource), coerceValue: CoerceImageSource);
+
+        /// <summary>
+        /// Gets or sets the error placeholder image.
+        /// </summary>
+        [TypeConverter(typeof(ImageSourceConverter))]
+        public ImageSource ErrorPlaceholder
+        {
+            get => (ImageSource)GetValue(ErrorPlaceholderProperty);
+            set => SetValue(ErrorPlaceholderProperty, value);
+        }
+
         public int RetryCount { get; set; } = 3;
 
         public int RetryDelay { get; set; } = 250;
@@ -71,19 +102,7 @@ namespace MmImageLoading.MAUI
 
         public int? FadeAnimationDuration { get; set; }
 
-        //[TypeConverter(typeof(ImageSourceConverter))]
-        public ImageSource LoadingPlaceholder
-        {
-            get => CoerceImageSource(_loadingPlaceholder);
-            set => _loadingPlaceholder = value;
-        }
 
-        //[TypeConverter(typeof(ImageSourceConverter))]
-        public ImageSource ErrorPlaceholder
-        {
-            get => CoerceImageSource(_errorPlaceholder);
-            set => _errorPlaceholder = value;
-        }
 
         public bool? TransformPlaceholders { get; set; }
 
