@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net7.0;net7.0-android;net7.0-ios;</TargetFrameworks>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageId>MmImageLoading</PackageId>
+		<Title>mMImageLoading Plugin for Maui</Title>
+		<Version>0.7.1</Version>
+		<Authors>hulluP</Authors>
+		<Company>level28.de</Company>
+		<Product>de.level28.MmImageLoading</Product>
+		<Description>Library to load images quickly and easily on Maui. 
+Currently only Android and iOS are supported. if you needs other platform please help us.
+
+This Library enables fast loading and rendering of Animations and Images. This project is based on the the famous [FFImageLoading](https://github.com/luberda-molinet/FFImageLoading), so it is standing on the shoulder of a Giant.
+
+
+Features:
+
+- MAUI
+- Configurable disk and memory caching
+- Multiple image views using the same image source (url, path, resource) will use only one bitmap which is cached in memory (less memory usage)
+</Description>
+		<Copyright>level28.de</Copyright>
+		<PackageProjectUrl>https://github.com/Level28-de/MmImageLoading</PackageProjectUrl>
+		<PackageIcon>mSoSoGicon.jpg</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/Level28-de/MmImageLoading</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>maui, android, ios, image, cache, caching, memory, bitmap, gif, load, loading, save, photo</PackageTags>
+		<PackageReleaseNotes>maui, android, ios, image, cache, caching, memory, bitmap, gif, load, loading, save, photo</PackageReleaseNotes>
+		<PackageLicenseUrl>https://github.com/Level28-de/MmImageLoading/blob/main/LICENSE.md</PackageLicenseUrl>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+		<CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Properties\launchSettings.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<BundleResource Include="Properties\launchSettings.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\Resources\mSoSoGicon.jpg">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="SkiaSharp.Views" Version="2.88.3" />
+	</ItemGroup>
+</Project>
