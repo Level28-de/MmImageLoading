@@ -10,7 +10,7 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>MmImageLoading</PackageId>
 		<Title>mMImageLoading Plugin for Maui</Title>
-		<Version>0.7.1</Version>
+		<Version>0.7.6</Version>
 		<Authors>hulluP</Authors>
 		<Company>level28.de</Company>
 		<Product>de.level28.MmImageLoading</Product>
@@ -30,13 +30,16 @@ Features:
 		<PackageProjectUrl>https://github.com/Level28-de/MmImageLoading</PackageProjectUrl>
 		<PackageIcon>mSoSoGicon.jpg</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/Level28-de/MmImageLoading</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>maui, android, ios, image, cache, caching, memory, bitmap, gif, load, loading, save, photo</PackageTags>
 		<PackageReleaseNotes>maui, android, ios, image, cache, caching, memory, bitmap, gif, load, loading, save, photo</PackageReleaseNotes>
-		<PackageLicenseUrl>https://github.com/Level28-de/MmImageLoading/blob/main/LICENSE.md</PackageLicenseUrl>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+		<CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
 		<CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 	<ItemGroup>
@@ -60,6 +63,7 @@ Features:
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="SkiaSharp.Views" Version="2.88.3" />
+		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
+		<PackageReference Include="SkiaSharp.Views.Maui.Core" Version="2.88.3" />
 	</ItemGroup>
 </Project>
